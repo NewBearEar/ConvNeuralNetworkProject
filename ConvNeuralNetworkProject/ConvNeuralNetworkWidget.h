@@ -5,6 +5,7 @@
 #include "gdal_priv.h"
 #include <iostream>  
 #include <QDebug>
+#include <qmessagebox.h>
 
 
 class ConvNeuralNetworkWidget : public QMainWindow

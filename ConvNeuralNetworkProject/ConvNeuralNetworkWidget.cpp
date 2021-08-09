@@ -24,17 +24,18 @@ ConvNeuralNetworkWidget::ConvNeuralNetworkWidget(QWidget *parent)
 }
 
 void ConvNeuralNetworkWidget::clickBtnTrain() {
-    //ui.textEdit->clear();
-    //nnTrain();
+    ui.textEdit->clear();
+    nnTrain();
 
+    /*
     string datasetDirRoot = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\";
     DataStruct test_input = Util::mnistImagePrepare((datasetDirRoot + string("t10k-images.idx3-ubyte")).c_str());
     mat test_label = Util::mnistLabelPrepare((datasetDirRoot + string("t10k-labels.idx1-ubyte")).c_str());
     mat image1 = (*(test_input.getData()[0]));
     cv::Mat_<double> img;
     Util::arma_mat_to_cv_mat(image1, img);
-
-    imshow("image", img);
+    
+    imshow("image", img);*/
     /*
     const char* imagename = "C:\\Users\\Jason\\Pictures\\1.jpg";//此处为你自己的图片路径
 
@@ -547,10 +548,14 @@ void ConvNeuralNetworkWidget::clickBtnVal()
 void ConvNeuralNetworkWidget::setTestImageNum()
 {
     QString num = ui.lineEdit->text();
-    if (num.toInt()>=0 && num.toInt() < 10000) {
+    if (num.toInt()>=0 && num.toInt() < 10000 && !num.isEmpty()) {
         this->testImageNumber = num.toInt();
+        showImageInLabel(this->testImageNumber);
     }
-    showImageInLabel(this->testImageNumber);
+    else {
+        QMessageBox::warning(this, "Out of Range!", "The number you entered should be one from 0 to 9999. Please enter a new one !");
+    }
+    
 }
 
 void ConvNeuralNetworkWidget::updateTextEditData(QString data)
