@@ -380,3 +380,5 @@ void Util::cv_mat_to_arma_mat(const cv::Mat1b& cv_mat_in, arma::uchar_mat& arma_
 	}
 
 }
+
+

@@ -2,7 +2,7 @@
 
 DataStruct::DataStruct(DataSize& size)
 {
-	//使用reset将传统指针转为智能指针
+	//转为智能指针
 	this->pSize = make_shared<DataSize>(size);
 }
 

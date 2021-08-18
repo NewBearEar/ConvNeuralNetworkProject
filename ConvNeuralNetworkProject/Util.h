@@ -42,15 +42,14 @@ public:
 	
 	static void cv_mat_to_arma_mat(const cv::Mat1b& cv_mat_in, arma::uchar_mat& arma_mat_out);
 	template<typename T>
-	static void arma_mat_to_cv_mat(const arma::Mat<T>& arma_mat_in, cv::Mat_<T>& cv_mat_out);
+	inline static void arma_mat_to_cv_mat(const arma::Mat<T>& arma_mat_in, cv::Mat_<T>& cv_mat_out)
+	{
+		cv::transpose(cv::Mat_<T>(static_cast<int>(arma_mat_in.n_cols),
+			static_cast<unsigned char>(arma_mat_in.n_rows),
+			const_cast<T*>(arma_mat_in.memptr())),
+			cv_mat_out);
+	}
 
 };
 
-template<typename T>
-inline void Util::arma_mat_to_cv_mat(const arma::Mat<T>& arma_mat_in, cv::Mat_<T>& cv_mat_out)
-{
-	cv::transpose(cv::Mat_<T>(static_cast<int>(arma_mat_in.n_cols),
-		static_cast<unsigned char>(arma_mat_in.n_rows),
-		const_cast<T*>(arma_mat_in.memptr())),
-		cv_mat_out);
-}
+

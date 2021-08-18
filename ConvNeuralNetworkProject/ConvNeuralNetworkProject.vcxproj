@@ -53,17 +53,17 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>D:\OpenCV_CPP\opencv\build\include\opencv2;D:\OpenCV_CPP\opencv\build\include;D:\ConvNNProj\ConvNeuralNetworkProject\Environment\armadillo-10.6.1\armadillo-10.6.1\include;D:\ConvNNProj\ConvNeuralNetworkProject\Environment\gdal231\gdal\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\OpenCV_CPP\opencv\build\x64\vc15\lib;D:\ConvNNProj\ConvNeuralNetworkProject\Environment\armadillo-10.6.1\armadillo-10.6.1\examples\lib_win64;D:\ConvNNProj\ConvNeuralNetworkProject\Environment\gdal231\gdal\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\OpenCV_CPP\opencv\build\include\opencv2;D:\OpenCV_CPP\opencv\build\include;..\Environment\armadillo-10.6.1\armadillo-10.6.1\include;..\Environment\gdal231\gdal\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\OpenCV_CPP\opencv\build\x64\vc15\lib;..\Environment\armadillo-10.6.1\armadillo-10.6.1\examples\lib_win64;..\Environment\gdal231\gdal\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\ConvNNProj\ConvNeuralNetworkProject\Environment\armadillo-10.6.1\armadillo-10.6.1\include;D:\ConvNNProj\ConvNeuralNetworkProject\Environment\gdal231\gdal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Environment\armadillo-10.6.1\armadillo-10.6.1\include;..\Environment\gdal231\gdal\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>D:\ConvNNProj\ConvNeuralNetworkProject\Environment\armadillo-10.6.1\armadillo-10.6.1\examples\lib_win64;D:\ConvNNProj\ConvNeuralNetworkProject\Environment\gdal231\gdal\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Environment\armadillo-10.6.1\armadillo-10.6.1\examples\lib_win64;..\Environment\gdal231\gdal\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>gdal_i.lib;libopenblas.lib;opencv_world453d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -7,7 +7,7 @@ using namespace std;
 using namespace arma;
 
 
-//定义数据类型类，存储四维矩阵
+//定义数据类型类，存储四维张量
 class DataStruct
 {
 public:
