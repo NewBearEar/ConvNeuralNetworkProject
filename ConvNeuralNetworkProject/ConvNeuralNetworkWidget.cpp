@@ -26,152 +26,14 @@ ConvNeuralNetworkWidget::ConvNeuralNetworkWidget(QWidget *parent)
 void ConvNeuralNetworkWidget::clickBtnTrain() {
     ui.textEdit->clear();
     nnTrain();
-
-    /*
-    string datasetDirRoot = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\";
-    DataStruct test_input = Util::mnistImagePrepare((datasetDirRoot + string("t10k-images.idx3-ubyte")).c_str());
-    mat test_label = Util::mnistLabelPrepare((datasetDirRoot + string("t10k-labels.idx1-ubyte")).c_str());
-    mat image1 = (*(test_input.getData()[0]));
-    cv::Mat_<double> img;
-    Util::arma_mat_to_cv_mat(image1, img);
-    
-    imshow("image", img);*/
-    /*
-    const char* imagename = "C:\\Users\\Jason\\Pictures\\1.jpg";//此处为你自己的图片路径
-
-    //从文件中读入图像
-    cv::Mat img = cv::imread(imagename, 1);
-
-    //如果读入图像失败
-    if (img.empty()) {
-        fprintf(stderr, "Can not load image %s\n", imagename);
-        return ;
-    }
-    //显示图像
-    imshow("image", img);
-    */
-
-    //
-
-    /*
-    
-    string pszFile;
-    GDALAllRegister();
-    pszFile = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\Google dataset of SIRI-WHU_earth_im_tiff\\12class_tif\\agriculture\\0001.tif";  // 打开一个存在的图片 
-    GDALDataset* poDataset = (GDALDataset*)GDALOpen(pszFile.c_str(), GA_ReadOnly);
-    int num_bands = poDataset->GetRasterCount();
-    qDebug() << num_bands << poDataset->GetRasterXSize() << poDataset->GetRasterYSize();
-    GDALRasterBand* poBand = poDataset->GetRasterBand(1);
-    int xsize = poBand->GetXSize();
-    int ysize = poBand->GetYSize();
-    qDebug() << "xsize:" << xsize ;
-    qDebug() << "ysize:" << ysize ;
-    */
-    //mat test =Util::readMnistImage("D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\train-images.idx3-ubyte");
-    //cout << Util::reshapeColvec2MatByRow(test.row(77),28,28);
-    //cout << Util::reshapeMat2Cube(Util::reshapeColvec2MatByRow(test.row(77), 28, 28), 28, 28, 1);
-    //mat lab = Util::readMnistLabel("D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\train-labels.idx1-ubyte");
-    //cout << lab.row(77);
-    
-
-    //cube A(3, 2,4, fill::randu);
-    //cout << A << "\n";
-    //cout << pow(0.95, 1 + 1);
-    
-
-    //nnTrain();
-    //nnVal();
-
-
-    //A.save("D:\\testcsv");
-    
-    //cube B;
-    //B.load("D:\\testcsv");
-    //cout << B;
-    
-    
-
-
-
-
-    /*
-    //Util::saveMat2csv(test, "D:\\test.csv");
-    dcube cc(3, 2, 2);
-    cc.slice(0) = {{1,2},{3,4},{5,6}};
-    cc.slice(1) = {{7,8},{9,10},{11,12}} ;
-    cout << cc << "\n";
-    cout << Util::cubeRot180(cc, 0, 2);
-    
-
-    mat A(3, 2, fill::randu);
-    mat B(1, 2, fill::randu);
-    cout << A <<"\n";
-    cout << Util::matRot180(A);
-    cout << B <<"\n";
-    cube k(4, 2, 3, fill::randu);
-    cout << sum(k, 0);
-    cout << sum(sum(k, 0), 1);
-    cout << sum(k, 2);
-    cout << mat(4, 5, fill::value(24));
-    A(span(0), span(0, 1)) = B;
-    cout << A << "\n";
-    cout << B<<"\n";
-
-    cout << A.index_max();
-
-    cout << k << "\n";
-    dcube jl(2*4, 2*2, 3);
-    Util::repeatRowCol2(k, jl);
-    cout << jl;
-
-    
-    //vector<shared_ptr<dcube>> kk;
-
-
-    //cube x = Util::cubeZeroPadding(k, 2);
-    mat x = Util::img2col(k, 2, 2, 1, 0);
-    mat y = arma::reshape(k, 3, 8,1);
-    cout << x<<"\n";
-    cout << y<<"\n";
-    cube z = Util::reshapeMat2Cube(y,4,2,3);
-    cout << z << "\n";
-    cout << z.row(1) << "\n";
-    mat d(2, 3, fill::zeros);
-    z.row(1) = d;
-    cout << z;
-    int i = 0;
-    mat* pV;
-  
-    mat V(1, 2, fill::randu);
-    cube L;
-    vector<shared_ptr<cube>> vppV;
-    for (int i = 1; i < 3; i++) {
-        if (true) {
-            L = cube(2, 5,2, fill::randu);
-            pV = &V;
-            shared_ptr<cube> ppV = make_shared<cube>(L);
-            //ppV.reset(&L);
-            vppV.push_back(ppV);
-            cout << *ppV<<"\n";
-        }
-    }
-    cout << *vppV[0] << "\n";
-    cout << *vppV[1] << "\n";
-
-    
-
-    system("pause");*/
-    //system("pause");
-    return ;
-    
-    
+    return ; 
 }
 
 
 
 void ConvNeuralNetworkWidget::nnTrain()
 {
-    string datasetDirRoot = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\";
+    string datasetDirRoot = "..\\dataset\\mnist_dataset\\mnist_dataset\\";
     DataStruct train_input = Util::mnistImagePrepare((datasetDirRoot + string("train-images.idx3-ubyte")).c_str());
     
     mat train_label = Util::mnistLabelPrepare((datasetDirRoot + string("train-labels.idx1-ubyte")).c_str());
@@ -208,7 +70,7 @@ void ConvNeuralNetworkWidget::nnTrain()
     SoftmaxLayer softmax = SoftmaxLayer();
 
     //参数保存路径
-    const char* dirName = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\results";
+    const char* dirName = "..\\results";
     const char* conv1KernelRoot = "conv1_k";
     const char* conv1BiasRoot = "conv1_b";
     const char* conv2KernelRoot = "conv2_k";
@@ -293,12 +155,12 @@ void ConvNeuralNetworkWidget::nnTrain()
 void ConvNeuralNetworkWidget::nnVal()
 {
     //读取测试数据
-    string datasetDirRoot = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\";
+    string datasetDirRoot = "..\\dataset\\mnist_dataset\\mnist_dataset\\";
     DataStruct test_input = Util::mnistImagePrepare((datasetDirRoot + string("t10k-images.idx3-ubyte")).c_str());
     mat test_label = Util::mnistLabelPrepare((datasetDirRoot + string("t10k-labels.idx1-ubyte")).c_str());
 
     //参数的保存路径
-    const char* dirName = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\results";
+    const char* dirName = "..\\results";
     const char* conv1KernelRoot = "conv1_k";
     const char* conv1BiasRoot = "conv1_b";
     const char* conv2KernelRoot = "conv2_k";
@@ -405,12 +267,12 @@ void ConvNeuralNetworkWidget::nnVal()
 int ConvNeuralNetworkWidget::nnPredict(int imageNumber)
 {
     //读取测试数据
-    string datasetDirRoot = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\";
+    string datasetDirRoot = "..\\dataset\\mnist_dataset\\mnist_dataset\\";
     DataStruct test_input = Util::mnistImagePrepare((datasetDirRoot + string("t10k-images.idx3-ubyte")).c_str());
     mat test_label = Util::mnistLabelPrepare((datasetDirRoot + string("t10k-labels.idx1-ubyte")).c_str());
 
     //参数的保存路径
-    const char* dirName = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\results";
+    const char* dirName = "..\\results";
     const char* conv1KernelRoot = "conv1_k";
     const char* conv1BiasRoot = "conv1_b";
     const char* conv2KernelRoot = "conv2_k";
@@ -503,7 +365,7 @@ int ConvNeuralNetworkWidget::nnPredict(int imageNumber)
 void ConvNeuralNetworkWidget::showImageInLabel(int imageNumber)
 {
     
-    string datasetDirRoot = "D:\\ConvNNProj\\ConvNeuralNetworkProject\\dataset\\mnist_dataset\\mnist_dataset\\";
+    string datasetDirRoot = "..\\dataset\\mnist_dataset\\mnist_dataset\\";
     DataStruct test_input = Util::mnistImagePrepare((datasetDirRoot + string("t10k-images.idx3-ubyte")).c_str());
     mat test_label = Util::mnistLabelPrepare((datasetDirRoot + string("t10k-labels.idx1-ubyte")).c_str());
     //首先要将armadillo mat转cv Mat
